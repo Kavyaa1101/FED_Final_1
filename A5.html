@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post Layout</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        
+        .blog-post {
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .main-content {
+            flex: 3;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .main-content h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+
+        .main-content p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        
+        .sidebar {
+            flex: 1;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sidebar h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+        }
+
+        .sidebar ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .sidebar ul li a:hover {
+            color: #007BFF;
+        }
+
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+
+        @media screen and (max-width: 768px) {
+            .blog-post {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                margin-top: 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            .main-content h2 {
+                font-size: 1.5em;
+            }
+
+            .main-content p {
+                font-size: 1em;
+            }
+
+            .sidebar h3 {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <h1>My Blog</h1>
+        <p>Sharing Thoughts, Ideas, and Stories</p>
+    </header>
+
+    
+    <div class="container">
+        <div class="blog-post">
+            
+            <div class="main-content">
+                <h2>The Beauty of Nature: A Reflection</h2>
+                <p><strong>Subtitle:</strong> Discovering the Wonders of Our Natural World</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. </p>
+                <p>In sit amet risus. Vestibulum dapibus nunc ac augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem.</p>
+            </div>
+
+            
+            <div class="sidebar">
+                <h3>Related Posts</h3>
+                <ul>
+                    <li><a href="#">The Wonders of the Ocean</a></li>
+                    <li><a href="#">Why We Need to Protect Wildlife</a></li>
+                    <li><a href="#">Exploring the Forests of the World</a></li>
+                    <li><a href="#">The Changing Climate: A Wake-Up Call</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <footer>
+        <p>&copy; 2024 My Blog. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        
+        const links = document.querySelectorAll('.sidebar a');
+        links.forEach(link => {
+            link.addEventListener('mouseover', function() {
+                link.style.color = '#007BFF';
+            });
+            link.addEventListener('mouseout', function() {
+                link.style.color = '#333';
+            });
+        });
+    </script>
+
+</body>
+</html>

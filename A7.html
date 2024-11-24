@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Gallery with Lightbox</title>
+    <style>
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+      }
+
+      
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      .gallery img {
+        width: 100%;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+      }
+
+      
+      .gallery img:hover {
+        transform: scale(1.05);
+      }
+
+      
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+
+      .lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 10px;
+      }
+
+      
+      .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background-color: #ff6347;
+        color: white;
+        font-size: 1.5em;
+        border: none;
+        padding: 10px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .close-btn:hover {
+        background-color: #ff4500;
+      }
+
+      
+      @media screen and (max-width: 768px) {
+        .gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="gallery">
+      <img src="1.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="2.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="3.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="4.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="3.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="2.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="1.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="4.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="2.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="1.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="4.jpeg" alt="Image 1" class="gallery-item" />
+      <img src="3.jpeg" alt="Image 1" class="gallery-item" />
+    </div>
+
+    <div class="lightbox" id="lightbox">
+      <button class="close-btn" id="close-btn">&times;</button>
+      <img src="" alt="Enlarged Image" id="lightbox-img" />
+    </div>
+
+    <script>
+      const galleryItems = document.querySelectorAll(".gallery-item");
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const closeBtn = document.getElementById("close-btn");
+
+      galleryItems.forEach((item) => {
+        item.addEventListener("click", function () {
+          lightbox.style.display = "flex";
+          lightboxImg.src = item.src;
+        });
+      });
+
+      closeBtn.addEventListener("click", function () {
+        lightbox.style.display = "none";
+      });
+
+      lightbox.addEventListener("click", function (e) {
+        if (e.target === lightbox) {
+          lightbox.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url("https://via.placeholder.com/1600x800");
+        background-size: cover;
+        background-position: center;
+      }
+
+      
+      .contact-container {
+        text-align: center;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.8
+        ); 
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 100%;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 2.5em;
+        color: #333;
+      }
+
+      
+      .contact-info {
+        margin: 20px 0;
+        font-size: 1.2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        color: #333;
+      }
+
+      .contact-info div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .contact-info i {
+        font-size: 1.5em;
+        color: #007bff; 
+      }
+
+      
+      .contact-info i:hover {
+        color: #0056b3;
+      }
+
+      
+      .contact-method {
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 15px;
+      }
+
+      
+      @media screen and (max-width: 768px) {
+        .contact-info {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style>
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    
+    <div class="contact-container">
+      <h1>Contact Us</h1>
+
+      
+      <div class="contact-method">
+        <div class="contact-info">
+          <div>
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Kavyaa_S,Kumarapalayam,Erode</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-method">
+        <div class="contact-info">
+          <div>
+            <i class="fas fa-phone-alt"></i>
+            <span>+91 9012345678</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-method">
+        <div class="contact-info">
+          <div>
+            <i class="fas fa-envelope"></i>
+            <span>sparkle@gmail.com</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

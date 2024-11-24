@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Countdown Timer</title>
+    <style>
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      
+      .event-section {
+        width: 80%;
+        max-width: 800px;
+        text-align: center;
+        background-color: gray;
+        background-size: cover;
+        background-position: center;
+        padding: 50px;
+        border-radius: 15px;
+        color: white;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .event-section h1 {
+        font-size: 3em;
+        margin-bottom: 20px;
+      }
+
+      
+      .timer {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        font-size: 2.5em;
+      }
+      p {
+        padding: 15px;
+      }
+
+      .time-unit {
+        background-color: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        width: 1000px;
+        text-align: center;
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+
+      .days {
+        background-color: #ff6347; 
+      }
+
+      .hours {
+        background-color: #ffdd00; 
+      }
+
+      .minutes {
+        background-color: #4caf50; 
+      }
+
+      .seconds {
+        background-color: #1e90ff;
+      }
+
+      
+      @media screen and (max-width: 768px) {
+        .timer {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div class="event-section">
+      <h1>Upcoming Event</h1>
+      <p>Don't miss out on our exciting event! The countdown is on.</p>
+
+      
+      <div class="timer">
+        <div class="time-unit days">
+          <div id="days">00</div>
+          <span>Days</span>
+        </div>
+        <div class="time-unit hours">
+          <div id="hours">00</div>
+          <span>Hours</span>
+        </div>
+        <div class="time-unit minutes">
+          <div id="minutes">00</div>
+          <span>Minutes</span>
+        </div>
+        <div class="time-unit seconds">
+          <div id="seconds">00</div>
+          <span>Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      
+      const eventDate = new Date("Dec 31, 2024 00:00:00").getTime();
+
+      
+      const interval = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = eventDate - now;
+
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        
+        document.getElementById("days").innerHTML =
+          days < 10 ? "0" + days : days;
+        document.getElementById("hours").innerHTML =
+          hours < 10 ? "0" + hours : hours;
+        document.getElementById("minutes").innerHTML =
+          minutes < 10 ? "0" + minutes : minutes;
+        document.getElementById("seconds").innerHTML =
+          seconds < 10 ? "0" + seconds : seconds;
+
+        
+        if (distance < 0) {
+          clearInterval(interval);
+          document.querySelector(".event-section p").innerHTML =
+            "The event has started!";
+        }
+      }, 1000);
+    </script>
+  </body>
+</html>
